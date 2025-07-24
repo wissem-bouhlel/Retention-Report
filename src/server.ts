@@ -106,7 +106,7 @@ const init = async () => {
   });
 
   app.get("/", (_req: Request, res: Response) => {
-    res.send("Express + TypeScript Server");
+    res.send("kaka");
 });
   app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);

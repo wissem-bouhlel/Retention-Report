@@ -1,16 +1,19 @@
-import express, { Express, Request, Response } from "express";
-import dotenv from "dotenv";
+import dotenv from 'dotenv';
+import { AppDataSource } from './data-source';
+import { createApp } from './app.module';
 
 dotenv.config();
 
-
-const app: Express = express();
 const port = process.env.PORT || 3000;
 
-app.get("/", (req: Request, res: Response) => {
-    res.send("Express + TypeScript Server");
-});
+AppDataSource.initialize()
+  .then(() => {
+    const app = createApp();
 
-app.listen(port, () => {
-    console.log(`[server]: Server is running at http://localhost:${port}`);
-});
+    app.listen(port, () => {
+      console.log(`✅ Server started at http://localhost:${port}`);
+    });
+  })
+  .catch((err) => {
+    console.error('❌ Database init error:', err);
+  });
