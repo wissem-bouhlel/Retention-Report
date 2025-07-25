@@ -42,15 +42,18 @@ npm install
 Make sure your SQLite file is named salon.sqlite and placed at the root of the project directory.
 
 📌 Required Tables:
+```shell
 
 CLIENTS
 
 EMPLOYEES
 
 APPOINTMENTS
+```
 
 Schema example:
 
+```shell
 CREATE TABLE CLIENTS (
   client_id INTEGER PRIMARY KEY,
   first_name TEXT NOT NULL,
@@ -72,7 +75,7 @@ CREATE TABLE APPOINTMENTS (
   FOREIGN KEY(client_id) REFERENCES CLIENTS(client_id),
   FOREIGN KEY(employee_id) REFERENCES EMPLOYEES(employee_id)
 );
-
+```
 ### 4. Run the Server (Dev Mode)
 ```bash
 npm run dev
@@ -86,20 +89,16 @@ GET /retention/report
 Returns a JSON object showing employee retention by month.
 
 Sample Response:
+```json
+[
+  { "employeeId": 1, "month": "2025-01", "clients": 100, "percentage": 100 },
+  { "employeeId": 2, "month": "2025-01", "clients": 40, "percentage": 100 },
+  { "employeeId": 1, "month": "2025-02", "clients": 60, "percentage": 60 },
+  { "employeeId": 2, "month": "2025-02", "clients": 20, "percentage": 50 }
+]
+```
 
-{
-  "2025-01": {
-    "1": { "clients": 100, "percentage": 100 },
-    "2": { "clients": 40, "percentage": 100 }
-  },
-  "2025-02": {
-    "1": { "clients": 60, "percentage": 60 },
-    "2": { "clients": 20, "percentage": 50 }
-  }
-}
-Each key is a month (yyyy-MM)
-
-Each value maps to employee IDs with:
+employeeId: The id of the employee
 
 clients: how many clients returned that month
 
@@ -116,7 +115,7 @@ Once running, open your browser to:
 This shows the auto-generated Swagger UI.
 
 🧱 Project Structure
-
+```shell
 src/
 ├── index.ts               # App entry point
 ├── app.module.ts          # Main app and router loader
@@ -132,7 +131,7 @@ src/
 │   ├── Appointment.ts
 │   ├── Client.ts
 │   └── Employee.ts
-
+```
 
 🔧 Scripts
 Command	Description

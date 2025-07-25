@@ -2,7 +2,6 @@ import { Router } from 'express';
 import { getRetentionReport } from '../controllers/retention.controller';
 
 const router = Router();
-
 /**
  * @openapi
  * /retention/report:
@@ -16,10 +15,15 @@ const router = Router();
  *         content:
  *           application/json:
  *             schema:
- *               type: object
- *               additionalProperties:
+ *               type: array
+ *               items:
  *                 type: object
  *                 properties:
+ *                   employeeId:
+ *                     type: integer
+ *                   month:
+ *                     type: string
+ *                     format: date
  *                   clients:
  *                     type: integer
  *                   percentage:
