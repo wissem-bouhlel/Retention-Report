@@ -28,14 +28,15 @@ A TypeScript + Express + TypeORM backend service that computes client retention 
 ## 🚀 Getting Started
 
 ### 1. Clone the Repository
-
-```bash```
-git https://github.com/wissem-bouhlel/Retention-Report.git
+```bash
+git clone https://github.com/wissem-bouhlel/Retention-Report.git
 cd Retention-Report
+```
 
 ### 2. Install Dependencies
-
+```bash
 npm install
+```
 
 ### 3. Add SQLite Database
 Make sure your SQLite file is named salon.sqlite and placed at the root of the project directory.
@@ -73,8 +74,9 @@ CREATE TABLE APPOINTMENTS (
 );
 
 ### 4. Run the Server (Dev Mode)
-
+```bash
 npm run dev
+```
 
 The server will be available at:
 http://localhost:3000
@@ -143,3 +145,21 @@ You can use a .env file to customize environment settings.
 
 Example .env
 PORT=3000
+
+---
+
+## 🐳 Docker
+
+You can containerize this project using the provided `Dockerfile` to run it anywhere with Docker installed.
+
+### 🧱 Build the Docker Image
+
+```bash
+docker build -t retention-api .
+```
+
+### 🚀 Run the Container
+
+```bash
+docker run -p 3000:3000 retention-api
+```

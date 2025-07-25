@@ -1,6 +1,5 @@
 import { Router } from 'express';
 import { getRetentionReport } from '../controllers/retention.controller';
-// import { getRetentionReport } from '../controllers/retention.controller.js';
 
 const router = Router();
 
